@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<package format="1">
+  <name>Nick Omarchy FreeCAD Setup</name>
+  <description>Portable UI preferences, units, navigation, colors and toolbar visibility.</description>
+  <version>1.0.0</version>
+  <maintainer>nickfoy</maintainer>
+  <license file="LICENSE">MIT</license>
+  <url type="repository" branch="main">https://github.com/nickfoy/sharedomarchy</url>
+  <content>
+    <preferencepack>
+      <name>NickOmarchy</name>
+      <description>Nick's saved Omarchy baseline; apply explicitly to restore selected preferences.</description>
+      <version>1.0.0</version>
+      <tag>personal</tag>
+      <tag>omarchy</tag>
+    </preferencepack>
+  </content>
+</package>
