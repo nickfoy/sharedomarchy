@@ -1,0 +1,22 @@
+name: Fusion compatibility
+on:
+  push:
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install Lua parser
+        run: sudo apt-get update && sudo apt-get install -y lua5.4
+      - name: Check package
+        run: |
+          python3 -m py_compile fusion360/install.py fusion360/opacity.py
+          python3 fusion360/tests/test_install.py
+          luac -p fusion360/fusion-windows.lua
+          lua fusion360/tests/windows.test.lua
