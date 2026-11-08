@@ -1,0 +1,20 @@
+name: FreeCAD setup
+on:
+  push:
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Validate package
+        run: |
+          python3 -m py_compile freecad/install.py freecad/export.py freecad/launcher.py
+          python3 freecad/tests/test_profile.py
+          python3 freecad/tests/test_install.py
+          python3 freecad/tests/test_launcher.py
